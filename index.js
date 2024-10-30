@@ -60,3 +60,4 @@ function continuePlaying() {
   document.getElementById("result").textContent = "";
   document.getElementById("continue-button").style.display = "none";
 }
+
