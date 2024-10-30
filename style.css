@@ -1,0 +1,29 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box
+}
+
+:root{
+    font-size: 62.5%
+}
+
+header{
+    height: 10rem;
+    width: 100%;
+    background-image: url(./img/Roulette-Casino-Gluecksspiel-681x387.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid red;
+}
+
+main{
+
+}
+
+footer{
+    margin-bottom: 0;
+    height: 5rem;
+    width: 100%;
+    border: 1px solid red;
+}
