@@ -4,13 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roulette</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-  
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
   <body>
     <header></header>
 
-    <main></main>
+    <main>
+      <h1>welcome to the roulette game</h1>
+      <div class="game-area">
+        <div id="intro-section">
+          <label for="nameInput">Enter your name:</label>
+          <input type="text" id="nameInput" placeholder="Your name" />
+          <button onclick="startGame()">Start Game</button>
+        </div>
+        <div id="game-section" style="display: none">
+          <p id="welcome-message"></p>
+          <p id="age-check" style="display: none">
+            You must be over 18 to play.
+          </p>
+          <label for="betType">Place your bet on even or odd:</label>
+          <select id="betType">
+            <option value="e">Even</option>
+            <option value="o">Odd</option>
+          </select>
+          <button onclick="playRound()">Place Bet</button>
+          <p id="result"></p>
+          <p id="balance"></p>
+          <!-- <button
+            id="continue-button"
+            onclick="continuePlaying()"
+            style="display: none"
+          >
+            Continue Playing
+          </button> -->
+        </div>
+      </div>
+    </main>
 
     <footer></footer>
 

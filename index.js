@@ -1,38 +1,62 @@
-import rls from "readline-sync";
+let name,
+  age,
+  balance = 100;
 
-let firstName = rls.question("Enter your first name please: ") || "Guest";
-console.log(`Welcome ${firstName}`);
+function startGame() {
+  name = document.getElementById("nameInput").value || "Guest";
+  document.getElementById("welcome-message").textContent = `Welcome ${name}`;
+  age = prompt("Enter your age:");
 
-let age = rls.question("Enter your age: ");
-if (age < 18) {
-  console.log("You can't play this game.");
-  process.exit();
+  if (age < 18) {
+    document.getElementById("age-check").style.display = "block";
+    return;
+  }
+
+  document.getElementById("intro-section").style.display = "none";
+  document.getElementById("game-section").style.display = "block";
+  updateBalance();
 }
-let geld = 100;
 
-while (geld >= 1) {
-  geld--;
-  let num = Math.floor(Math.random() * 101); // 0 - 100
-  console.log(`You have ${geld}€`);
-  const bet = rls.question("Do you want to bet even or odd? (e/o)");
-  console.log(`the Number is ${num}`);
+function playRound() {
+  if (balance <= 0) {
+    alert("You have no money left.");
+    return;
+  }
+
+  balance -= 1;
+  const num = Math.floor(Math.random() * 101);
+  const bet = document.getElementById("betType").value;
+
+  let message = `The number is ${num}. `;
   if (num === 0) {
-    console.log("You lose!");
+    message += "You lose!";
   } else if (num % 2 === 0 && bet === "e") {
-    console.log(`You win 2.4€`);
-    geld += 2.4;
+    message += "You win 1.9€!";
+    balance += 1.9;
   } else if (num % 2 !== 0 && bet === "o") {
-    console.log("You win 3€");
-    geld += 3;
+    message += "You win 1.9€!";
+    balance += 1.9;
   } else {
-    console.log("You lose!");
+    message += "You lose!";
   }
-  const play = rls.question(`Do you want to keep playing? (y/n)`);
-  if (play === "n") {
-    console.log(`Good bye, see you later!`);
 
-    break;
+  document.getElementById("result").textContent = message;
+  updateBalance();
+
+  if (balance > 0) {
+    document.getElementById("continue-button").style.display = "block";
+  } else {
+    alert("You have no money left.");
   }
 }
-console.log("You have no Money :(");
-console.clear();
+
+function updateBalance() {
+  document.getElementById("balance").textContent = `Balance: ${balance.toFixed(
+    2
+  )}€`;
+}
+
+function continuePlaying() {
+  document.getElementById("result").textContent = "";
+  document.getElementById("continue-button").style.display = "none";
+}
