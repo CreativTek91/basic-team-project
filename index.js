@@ -34,5 +34,6 @@ while (geld >= 1) {
     break;
   }
 }
+console.log("hello");
 console.log("You have no Money :(");
 console.clear();
